@@ -6,13 +6,18 @@ samtools can be used to extract reads mapped to U1 regions and make miniBAMs.
 ```bash
 $ samtools view -L $BED -hu $BWA_BAM | samtools sort > $miniBAM
 ```
-`$BED` is the BED file for U1 genes and pesudogenes and their flanking sequences. The human version (GENCODE v19; GRCh37) of `$BED` is provided.
+`$BED` is the BED file for U1 genes and pesudogenes and their flanking sequences. The human version (GENCODE v19; GRCh37) of `$BED` is provided ([./ref/gencode.v19.U1U11.nochr.flank1k.bed](./ref/gencode.v19.U1U11.nochr.flank1k.bed)).
 
 ## STEP 1: Analyze multiple mapping patterns
 This step has three parts: 1. realign with Bowtie2; 2. Filter realigned BAM; 3. Make REF and VAR depth table.
 
 A warpper script is provided, which takes three positional arguments:
-1. one miniBAM from **STEP 0**; 2. the identifier of the donor; 3. the output BAM path
+1. one miniBAM from **STEP 0**; 2. the identifier of the donor (e.g., patient1); 3. the output BAM prefix (e.g., patient1_normal)
 ```bash
-$ analyze_multi_map.sh $miniBAM $DONOR_ID $BW2_BAM
+$ ./src/analyze_multi_map.sh $miniBAM $DONOR_ID $BW2_BAM
 ```
+Please modify the path to bowtie2 index in the index.
+The bash script also depends on other reference files as well as the location of the `src` directory if not in PATH.
+No sanity checks are performed for inputs and references.
+
+
