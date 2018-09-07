@@ -60,3 +60,6 @@ we used to call mutations uses PON with 30<n<50 (`num_p` and `num_n` in output f
 ## References
 1. **Realignment using Bowtie2**: Langmead, B. & Salzberg, S. L. Fast gapped-read alignment with Bowtie 2. Nat. Methods 9, 357–359 (2012).
 2. **Mutation call using EBCall**: Shiraishi, Y. et al. An empirical Bayesian framework for somatic mutation detection from cancer genome sequencing data. Nucleic Acids Res. 41, e89 (2013).
+
+## Bug report
+These scripts are not fully tested, so please start a new issue if you need help or find a bug.
