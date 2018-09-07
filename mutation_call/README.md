@@ -55,7 +55,8 @@ Notes:
 2. The [./ref/ref_U1U11.map](./ref/ref_U1U11.map) is a file mapping each nucleotide to a U1 genes (GRCh37).
 3. In the output file ([patient1_genotype.tsv](./example/patient1_genotype.tsv)), the last column (`GT`) is the genotype.
 4. The cut-off of EB scores (`EB_tumour` and `EB_normal` in the output file)
-we used to call mutations uses PON with 30<n<50 (`num_p` and `num_n` in output file). If your sample size is different, you might need to find optimal cut-offs by yourself.  
+we used to call mutations uses PON with 30<n<50 (`num_p` and `num_n` in output file). If your sample size is different, you might need to find optimal cut-offs by yourself.
+5. `./src/beta_binomial_model.py` is based on EBCall but uses Python3 instead of Python2.
 
 ## References
 1. **Realignment using Bowtie2**: Langmead, B. & Salzberg, S. L. Fast gapped-read alignment with Bowtie 2. Nat. Methods 9, 357–359 (2012).
