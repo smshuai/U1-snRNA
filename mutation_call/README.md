@@ -46,7 +46,7 @@ do
   tail -n +2 $f >> ../PON.weighted.dp.tsv
 done
 ```
-We can now call mutations with PON and tumour/normal depth file (using patient1 as an example):
+We can now call mutations with PON and tumour depth file (here using patient1 as an example):
 ```bash
 $ ./src/beta_binomial_model.py ./patient1_tumour.weighted.dp.tsv ../PON.weighted.dp.tsv ./ref/ref_U1U11.map patient1_genotype.tsv
 ```
