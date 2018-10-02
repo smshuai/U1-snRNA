@@ -1,7 +1,7 @@
 This directory contains scripts used to call somatic mutations in U1 snRNA. The required inputs are normal-tumour paired WGS data.
 
 ## STEP 0: Make miniBAMs from BWA-MEM alignments
-Note that BWA-MEM must be run with `-t 0` to record all low MQ reads. Then for each BAM,
+Note that BWA-MEM must be run with `-T 0` to record all low MQ reads. Then for each BAM,
 samtools can be used to extract reads mapped to U1 regions and make miniBAMs.
 ```bash
 $ samtools view -L $BED -hu $BWA_BAM | samtools sort > $miniBAM
