@@ -119,8 +119,8 @@ def test_base(Ks_p, Ns_p, Ks_n, Ns_n, k_pt, n_pt, k_nt, n_nt, k_pn, n_pn, k_nn, 
     # Don't need too many training normals
     keep_p = np.random.choice(keep_p, N_normal, replace=False) if keep_p.shape[0] > N_normal else keep_p
     keep_n = np.random.choice(keep_n, N_normal, replace=False) if keep_n.shape[0] > N_normal else keep_n
-    assert keep_p.shape[0] < 30, "<30 useful normal samples for positive strand"
-    assert keep_p.shape[0] < 30, "<30 useful normal samples for negative strand"
+    assert keep_p.shape[0] >= 30, "<30 useful normal samples for positive strand"
+    assert keep_n.shape[0] >= 30, "<30 useful normal samples for negative strand"
     # Avoid that # success > # trials
     if k_pt > n_pt:
         k_pt = n_pt
@@ -188,7 +188,7 @@ if __name__ == '__main__':
             Ks_p = normal_panel.loc[(row.chrom, row.pos, row.alt), 'varP'].values
             Ns_p = normal_panel.loc[(row.chrom, row.pos, row.alt), 'dpP'].values
             Ks_n = normal_panel.loc[(row.chrom, row.pos, row.alt), 'varN'].values
-            Ns_n = normal_panel.loc[(row.chrom, row.pos, row.alt), 'dpP'].values
+            Ns_n = normal_panel.loc[(row.chrom, row.pos, row.alt), 'dpN'].values
             # Test tumour and normal with the same model
             ebt, ebn, num_p, num_n = test_base(Ks_p, Ns_p, Ks_n, Ns_n, k_pt, n_pt, k_nt, n_nt, k_pn, n_pn, k_nn, n_nn)
             eb_scores_tumour.append(ebt)
